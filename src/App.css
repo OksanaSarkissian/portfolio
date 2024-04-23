@@ -34,7 +34,7 @@ button:hover {
   color: var(--text-secondary);
   background-color: var(--text-primary);
   border: 2px var(--text-primary) solid;
-  font-weight: 900;
+  font-weight: 700;
   float: right;
   transition: all .5s;
 }
@@ -51,9 +51,8 @@ button:hover {
 }
 
 .App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  min-height: 20vh;
+  padding: 20px;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -72,3 +71,14 @@ button:hover {
   }
 }
 
+.App-footer {
+  position: fixed;
+  bottom:0;
+  min-height: 3vh;
+  padding: 20px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
