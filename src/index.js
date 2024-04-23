@@ -8,6 +8,9 @@ import "./i18n.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Header } from "./components/header.js";
 import { Footer } from "./components/footer.js";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+library.add(fas)
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

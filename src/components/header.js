@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "../App.css";
 import { ButtonTheme } from "./theme-button";
 import i18n from "../i18n";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLanguage } from "@fortawesome/free-solid-svg-icons";
 
 export function Header() {
   const changePage = (url) => {
@@ -16,28 +18,21 @@ export function Header() {
   return (
     <header className="App-header">
       <div className="header-button-parent">
-        <button
-          onClick={() => changePage("/oksana")}
-          style={{ marginBottom: "20px" }}
-        >
+        <button onClick={() => changePage("/oksana")}>
           {i18n.t("ok-about-me")}
         </button>
-        <button
-          onClick={() => changePage("/background")}
-          style={{ marginBottom: "20px" }}
-        >
+        <button onClick={() => changePage("/background")}>
           {i18n.t("ok-background")}
         </button>
-        <button
-          onClick={() => changePage("/projects")}
-          style={{ marginBottom: "20px" }}
-        >
+        <button onClick={() => changePage("/projects")}>
           {i18n.t("ok-my-projects")}
         </button>
         <ButtonTheme />
-        <button onClick={() => changeLangue()} style={{ marginBottom: "20px" }}>
-          Langue
-        </button>
+        <FontAwesomeIcon
+          className="App-link"
+          icon={faLanguage}
+          onClick={() => changeLangue()}
+        />
       </div>
     </header>
   );

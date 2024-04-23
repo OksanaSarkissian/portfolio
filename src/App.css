@@ -25,24 +25,17 @@
 button {
   color: var(--text-primary);
   background-color: var(--background);
-  border: 2px var(--text-primary) solid;
+  border: none;
   float: right;
-  transition: all .5s;
+  transition: all .2s;
   margin-left:2vw;
-}
-
-button:first-child{
-  border-top-right-radius: 25px;
-}
-
-button:last-child{
-  border-top-left-radius: 25px;
 }
 
 button:hover {
   color: var(--text-secondary);
   background-color: var(--text-primary);
   border: 2px var(--text-primary) solid;
+  border-radius: 5px;
   font-weight: 700;
   float: right;
   transition: all .5s;
@@ -70,6 +63,12 @@ button:hover {
 
 .App-link {
   color: var(--text-primary);
+  cursor:pointer;
+}
+
+.App-link:hover{
+  color: var(--accent);
+  cursor:pointer;
 }
 
 @keyframes App-logo-spin {
