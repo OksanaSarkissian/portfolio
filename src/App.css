@@ -1,15 +1,15 @@
 :root {
-  --background: white;
-  --text-primary: black;
-  --text-secondary: royalblue;
-  --accent: purple;
+  --background: #DAD2D8;
+  --text-primary: #593F62;
+  --text-secondary: #FB8B24;
+  --accent: #F4E87C;
 }
 
 [data-theme='dark'] {
-  --background: black;
-  --text-primary: white;
-  --text-secondary: grey;
-  --accent: darkred;
+  --background: #593F62;
+  --text-primary: #DAD2D8;
+  --text-secondary: #FB8B24;
+  --accent: #F4E87C;
 }
 
 .App {
@@ -26,6 +26,15 @@ button {
   color: var(--text-primary);
   background-color: var(--background);
   border: 2px var(--text-primary) solid;
+  float: right;
+  transition: all .5s;
+}
+
+button:hover {
+  color: var(--text-secondary);
+  background-color: var(--text-primary);
+  border: 2px var(--text-primary) solid;
+  font-weight: 900;
   float: right;
   transition: all .5s;
 }
