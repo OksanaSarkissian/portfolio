@@ -11,9 +11,9 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route index element={ <App />} />
-        {/* <Route path="/lorem" element={ <Home />} />
-        <Route path="/img" element={ <ImgTp2 />} />
-        <Route path="/dog" element={ <ApiSearch />} /> */}
+        {/* <Route path="/oksana" element={ <Oksana />} />
+        <Route path="/background" element={ <Background />} />
+        <Route path="/projects" element={ <Projects />} /> */}
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

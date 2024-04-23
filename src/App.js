@@ -1,22 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { ButtonTheme } from "./components/theme-button";
+import { ButtonLanguage } from "./components/langue-button";
 
 function App() {
+  const changePage = (url) => {
+    window.location.href = url;
+  };
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div>
+        <ButtonTheme/>
+        <ButtonLanguage/>
+        </div>
+        <div>
+        <button onClick={() =>changePage("/oksana")} style={{ marginBottom: "20px" }}>
+          About me
+        </button>
+        <button onClick={() =>changePage("/background")} style={{ marginBottom: "20px" }}>
+          Background
+        </button>
+        <button onClick={() =>changePage("/projects")} style={{ marginBottom: "20px" }}>
+          My projects
+        </button>
+        </div>
       </header>
     </div>
   );
