@@ -15,11 +15,7 @@ export function Header() {
   };
   return (
     <header className="App-header">
-      <div>
-        <ButtonTheme />
-        <button onClick={() => changeLangue()} style={{ marginBottom: "20px" }}>
-          Langue
-        </button>
+      <div className="header-button-parent">
         <button
           onClick={() => changePage("/oksana")}
           style={{ marginBottom: "20px" }}
@@ -37,6 +33,10 @@ export function Header() {
           style={{ marginBottom: "20px" }}
         >
           {i18n.t("ok-my-projects")}
+        </button>
+        <ButtonTheme />
+        <button onClick={() => changeLangue()} style={{ marginBottom: "20px" }}>
+          Langue
         </button>
       </div>
     </header>
