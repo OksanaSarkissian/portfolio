@@ -20,10 +20,12 @@ export function Header() {
     setLangue(langue === "fr" ? "en" : "fr");
   };
   const listenScrollEvent = e => {
-    if (window.scrollY > 50) {
+    if (window.scrollY < 50) {
       setBgHeader('scroll header')
-    }else{
+    }else if (window.scrollY > 50 && window.scrollY < 200) {
       setBgHeader('header')
+    }else{
+      setBgHeader('scroll header')
     }
   }
 
