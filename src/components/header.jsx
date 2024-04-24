@@ -7,6 +7,8 @@ import { faLanguage } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
 export function Header() {
+  
+  const [bgHeader, setBgHeader] = useState('header');
   const navigate = useNavigate();
   const changePage = (url) => {
     navigate(url);
@@ -17,8 +19,18 @@ export function Header() {
     i18n.changeLanguage(langue);
     setLangue(langue === "fr" ? "en" : "fr");
   };
+  const listenScrollEvent = e => {
+    if (window.scrollY > 50) {
+      setBgHeader('scroll header')
+    }else{
+      setBgHeader('header')
+    }
+  }
+
+    window.addEventListener('scroll', listenScrollEvent)
+
   return (
-    <>
+    <div className={bgHeader}>
       <svg
         width="50"
         height="50"
@@ -34,7 +46,7 @@ export function Header() {
         <div className="ctas">
           <ButtonTheme />
           <FontAwesomeIcon
-            className="App-link"
+            className="App-link-light"
             icon={faLanguage}
             onClick={() => changeLangue()}
           />
@@ -51,6 +63,6 @@ export function Header() {
           </button>
         </nav>
       </header>
-    </>
+    </div>
   );
 }

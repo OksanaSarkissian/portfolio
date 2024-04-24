@@ -13,6 +13,6 @@ useEffect(() => {
   }, [theme]);
 
   return (
-        <FontAwesomeIcon className="App-link" onClick={() => setTheme(theme === "dark" ? "light" : "dark")} icon={icon} />
+        <FontAwesomeIcon className="App-link-light" onClick={() => setTheme(theme === "dark" ? "light" : "dark")} icon={icon} />
   );
 }

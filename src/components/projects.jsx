@@ -23,7 +23,7 @@ const PROJECTSDATA = [
     desc: "Développement du portfolio en React pour le front, Node js pour le back avec une base de données pour la possibilité de modifier les couleurs de thème et le contenu à l'aide d'un back office. Ainsi que l'internationalisation complète du site.",
     annee: "2024",
     name: "Esimed",
-    urlImg: "logo192.png",
+    urlImg: "",
     link: "#",
   },
 ];
@@ -62,7 +62,7 @@ export function Projects() {
             <div className="col-md-12">
               <h2>{project?.annee}</h2>
               <h3>{project?.label}</h3>
-              <p className="text-left">{project?.desc}</p>
+              <p className="text-right">{project?.desc}</p>
               <h6>{project?.name}</h6>
             </div>
           </div>

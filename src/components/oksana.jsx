@@ -40,7 +40,6 @@ export function Oksana() {
             <p>
               {oksa?.nom} {oksa?.prénom}
             </p>
-
           </div>
         );
       })}{" "}
