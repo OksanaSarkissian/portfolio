@@ -44,7 +44,7 @@ export function Projects() {
       //gérer l'erreur
     });
   return (
-    <>
+    <div className="content flex-grow-1">
       {projectsData.map((project, index) => {
         return (
           <div className="col-md-12 mb-5" key={index}>
@@ -56,6 +56,8 @@ export function Projects() {
                     : "float-end col-md-4 me-5"
                 }
                 src={project?.urlImg}
+                width='100px'
+                height='auto'
                 alt="Description"
               /></a>
             )}
@@ -68,6 +70,6 @@ export function Projects() {
           </div>
         );
       })}
-    </>
+    </div>
   );
 }

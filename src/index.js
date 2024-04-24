@@ -8,25 +8,27 @@ import "./i18n.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Header } from "./components/header.jsx";
 import { Footer } from "./components/footer.jsx";
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
 import { Oksana } from "./components/oksana.jsx";
 import { Background } from "./components/background.jsx";
 import { Projects } from "./components/projects.jsx";
-library.add(fas)
+library.add(fas);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route index element={<App />} />
-        <Route path="/oksana" element={ <Oksana />} />
-        <Route path="/background" element={ <Background />} />
-        <Route path="/projects" element={ <Projects />} />
-      </Routes>
-      <Footer />
+      <div className="d-flex flex-column min-vh-100" >
+        <Header />
+        <Routes>
+          <Route index element={<App />} />
+          <Route path="/oksana" element={<Oksana />} />
+          <Route path="/background" element={<Background />} />
+          <Route path="/projects" element={<Projects />} />
+        </Routes>
+        <Footer />
+      </div>
     </BrowserRouter>
   </React.StrictMode>
 );

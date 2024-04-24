@@ -30,19 +30,23 @@ export function Oksana() {
     <>
       {oksaData.map((oksa, index) => {
         return (
-          <div key={index}>
-            <img
-              className="float-start me-5"
-              src={oksa?.urlImg}
-              alt="Description"
-            />
-            <p className="text-start">{oksa?.desc}</p>
-            <p>
-              {oksa?.nom} {oksa?.prénom}
-            </p>
+          <div className="content flex-grow-1" key={index}>
+            <div>
+              <img
+                className="float-start me-5"
+                src={oksa?.urlImg}
+                alt="Description"
+                width="500px"
+                height="auto"
+              />
+              <p>
+                {oksa?.nom} {oksa?.prénom}
+              </p>
+              <p className="text-start">{oksa?.desc}</p>
+            </div>
           </div>
         );
-      })}{" "}
+      })}
     </>
   );
 }

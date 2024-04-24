@@ -6,7 +6,11 @@ import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 export function Footer() {
   return (
     <>
-      <footer className="App-footer"><a className="App-link-dark" href="#"><FontAwesomeIcon icon={faLinkedin} /></a></footer>
+      <footer className="App-footer">
+        <a className="App-link-dark" href="#">
+          <FontAwesomeIcon icon={faLinkedin} />
+        </a>
+      </footer>
     </>
   );
 }
