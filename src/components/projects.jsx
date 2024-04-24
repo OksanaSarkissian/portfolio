@@ -8,6 +8,7 @@ const PROJECTSDATA = [
     annee: "2022",
     name: "MX ECOLE",
     urlImg: "logo192.png",
+    link: "#",
   },
   {
     label: "Bataille navale",
@@ -15,12 +16,15 @@ const PROJECTSDATA = [
     annee: "2023",
     name: "Esimed",
     urlImg: "logo192.png",
+    link: "#",
   },
   {
     label: "Portfolio",
     desc: "Développement du portfolio en React pour le front, Node js pour le back avec une base de données pour la possibilité de modifier les couleurs de thème et le contenu à l'aide d'un back office. Ainsi que l'internationalisation complète du site.",
     annee: "2024",
     name: "Esimed",
+    urlImg: "logo192.png",
+    link: "#",
   },
 ];
 export function Projects() {
@@ -45,11 +49,15 @@ export function Projects() {
         return (
           <div className="col-md-12 mb-5" key={index}>
             {project?.urlImg && (
-              <img
-                className={index % 2 === 0 ? "float-start col-md-4 me-5": "float-end col-md-4 me-5"}
+              <a href={project?.link}><img
+                className={
+                  index % 2 === 0
+                    ? "float-start col-md-4 me-5"
+                    : "float-end col-md-4 me-5"
+                }
                 src={project?.urlImg}
                 alt="Description"
-              />
+              /></a>
             )}
             <div className="col-md-12">
               <h2>{project?.annee}</h2>
