@@ -11,6 +11,8 @@ import { Footer } from "./components/footer.jsx";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { Oksana } from "./components/oksana.jsx";
+import { Background } from "./components/background.jsx";
+import { Projects } from "./components/projects.jsx";
 library.add(fas)
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -21,8 +23,8 @@ root.render(
       <Routes>
         <Route index element={<App />} />
         <Route path="/oksana" element={ <Oksana />} />
-        {/* <Route path="/background" element={ <Background />} />
-        <Route path="/projects" element={ <Projects />} /> */}
+        <Route path="/background" element={ <Background />} />
+        <Route path="/projects" element={ <Projects />} />
       </Routes>
       <Footer />
     </BrowserRouter>
