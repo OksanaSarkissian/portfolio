@@ -1,5 +1,13 @@
 {
     "ok-about-me":"A propos",
     "ok-background":"Mon parcours",
-    "ok-my-projects":"Projets"
+    "ok-my-projects":"Projets",
+    "ok-lorem":"Le client est très important, le client sera suivi par le client. Il n'y a pas de dessin animé du client lui-même, il sera suivi par le client. Il n’y a pas de caricature comme un lion, il lui faut une voiture. Ils tombent dans le lit, détestent la levure, mais c'est le plus gros déclencheur. Le carquois du vestibule libérera le rire du cheval, non le véhicule du lion. Mais la masse doit craindre les limites, sinon il n’y en aura pas. Il vivait dans cette rue. Nombre entier asapien à mauris sollicitudin accumsan. Pas de sauce, eros sitamet carquois sagittis, sauf que c'est du feugiat, des confins du mauris avant sitamet lacus. Mais demain, il aura besoin d'un oreiller. J'ai discuté avec un groupe de personnes. La flotte immobilière s'incline devant le portique du portique, et reprend les véhicules. Maladies et douleurs chez le reste des membres. Jusqu'à ce que le véhicule de la vie le veuille. Il sera pleinement poursuivi, désormais ni la lacinia ni le dignissim, ni le laoreet libre, ni la douleur gratuite du carquois n'ont besoin de l'élite.",
+    "ok-savoir-plus":"En savoir +",
+    "ok-desc-portfolio": "Développement du portfolio en React pour le front, Node js pour le back avec une base de données pour la possibilité de modifier les couleurs de thème et le contenu à l'aide d'un back office. Ainsi que l'internationalisation complète du site.",
+    "ok-desc-bataille-navale": "Création du cahier des charges, conception de la base de données ainsi que le maquettage d'un jeu de bataille navale. Développement du jeu en Node js avec Express pour le back, architecture MVC en JS pour le front.",
+    "ok-label-bataille-navale":"Bataille navale",
+    "ok-desc-mx-ecole": "Création du cahier des charges, conception de la base de données ainsi que le maquettage en collaboration avec la responsable de a société. Développement du site d'inscription en ligne à des cours de motocross et d'un back office pour la création des cours, l'accés à la liste des élèves à l'emploi du temps ainsi que l'accés aux inscrit aux cours.",
+    "ok-label-mx-ecole":"Conception et développement site web personnalisé"
+
 }

@@ -17,7 +17,7 @@
 .App {
   color: var(--text-primary);
   background-color: var(--background);
-  font-size: large;
+   font-size: large;
   font-weight: bold;
   height: calc(100vh - 40px);
   transition: all .5s ease;
@@ -52,6 +52,7 @@ button {
 }
 
 .App-header {
+  z-index:100;
   min-height: 10vh;
   padding: 20px;
   margin-bottom: 0;
@@ -61,18 +62,22 @@ button {
   font-size: calc(10px + 2vmin);
 }
 
-.header{
-  position:sticky;
-  top:0;
+.header {
+  position: sticky;
+  top: 0;
   background-color: var(--text-primary);
-  transition:all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
 
-  &:hover{
+  &:hover {
     opacity: 100%;
   }
 }
 
-.scroll, .scroll #header-logo, .scroll .App-link-light, .scroll .App-link-dark, .scroll button{
+.scroll,
+.scroll #header-logo,
+.scroll .App-link-light,
+.scroll .App-link-dark,
+.scroll button {
   fill: var(--text-primary);
   transition: all 0.7s ease-in-out;
   color: var(--text-primary);
@@ -80,10 +85,18 @@ button {
   background-blend-mode: color;
 }
 
+.scroll button:hover {
+  fill: var(--text-primary);
+  transition: all 0.7s ease-in-out;
+  color: var(--background);
+  background-color: var(--text-primary);
+  background-blend-mode: color;
+}
+
 #header-logo {
   fill: var(--logo);
   transition: all 0.5s ease;
-  cursor:pointer;
+  cursor: pointer;
 
   &:hover {
     fill: var(--accent);
@@ -109,6 +122,7 @@ button {
   color: var(--accent);
   cursor: pointer;
 }
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -128,9 +142,46 @@ button {
   font-size: calc(10px + 2vmin);
 }
 
-.content{
+.content {
+  background: url("https://www.marseille-tourisme.com/app/uploads/marseille-tourisme/2020/07/thumbs/champ-de-lavandes-soleil-couchantv-dimitrovpexelsomtcm-1920x960.jpg") center center;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
+  width: 100vw;
   justify-content: center;
+  align-items: stretch;
   min-height: 70vh;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+.bg-test{
+  background: var(--background);
+  padding: 15px;
+  justify-self: flex-end;
+}
+
+@media (min-width: 1100px) {
+  /* Split the screen in half */
+ .split {
+  position:fixed;
+  height: inherit;
+  width: inherit;
+  z-index: 1;
+  top: 25vh;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 15px;
+  width: auto;
+}
+}
+ 
+.left{
+  justify-self: center;
+  align-self: center;
+  width: 100%;
 }

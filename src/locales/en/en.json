@@ -1,5 +1,15 @@
 {
     "ok-about-me":"About me",
     "ok-background":"Background",
-    "ok-my-projects":"Projects"
+    "ok-my-projects":"Projects",
+    "ok-lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla viverra Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla viverraelit ut leo ullamcorper, eget volutpat mauris vehicula. Proin in lectustincidunt, fermentum odio sed, maximus felis. Vestibulum pharetra liberoet risus dapibus, non malesuada leo vehicula. Sed eget massa ac metusposuere finibus vel sit amet nulla. In hac habitasse platea dictumst.Duis vestibulum fermentum elit, et dapibus est convallis ac. Integer asapien at mauris sollicitudin accumsan. Nullam condimentum, eros sitamet pharetra sagittis, nisi quam feugiat est, a finibus mauris ante sitamet lacus. Cras at augue eget sem pulvinar vestibulum. Curabitur necdiam massa. Phasellus mattis arcu ut dolor vestibulum, et suscipitturpis vehicula. Morbi nec dolor in nisi vestibulum sodales. Donec vitaevehicula velit. Integer consectetur, nunc nec lacinia dignissim, nisilibero laoreet nisi, non pharetra dolor libero eget elit.",
+    "ok-savoir-plus":"See more",
+    "ok-desc-portfolio": "Development of the portfolio in React for the front, Node js for the back with a database for the possibility of modifying theme colors and content using a back office. As well as the complete internationalization of the site.",
+    "ok-desc-bataille-navale": "Creation of the specifications, design of the database as well as the model of a naval battle game. Game development in Node js with Express for the back, MVC architecture in JS for the front.",
+    "ok-label-bataille-navale":"Naval battle",
+    "ok-desc-mx-ecole": "Creation of the specifications, design of the database as well as the layout in collaboration with the company manager. Development of the online registration site for motocross courses and a back office for the creation of courses, access to the list of students on the timetable as well as access to those registered for courses.",
+    "ok-label-mx-ecole":"Customized website design and development"
+
+
+
 }

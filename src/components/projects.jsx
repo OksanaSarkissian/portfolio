@@ -1,26 +1,28 @@
 import React, { useEffect, useState } from "react";
 import "../App.css";
+import i18n from "../i18n";
 
 const PROJECTSDATA = [
   {
-    label: "Conception et développement site web personnalisé",
-    desc: "Création du cahier des charges, conception de la base de données ainsi que le maquettage en collaboration avec la responsable de a société. Développement du site d'inscription en ligne à des cours de motocross et d'un back office pour la création des cours, l'accés à la liste des élèves à l'emploi du temps ainsi que l'accés aux inscrit aux cours.",
+    label: "ok-label-mx-ecole",
+    desc: "ok-desc-mx-ecole",
     annee: "2022",
     name: "MX ECOLE",
-    urlImg: "logo192.png",
-    link: "#",
+    urlImg:
+      "https://www.mxecole.fr/wp-content/uploads/2024/03/cropped-LOGO-ECOLE-MX-PUGETVILLE.bmp",
+    link: "",
   },
   {
-    label: "Bataille navale",
-    desc: "Création du cahier des charges, conception de la base de données ainsi que le maquettage d'un jeu de bataille navale. Développement du jeu en Node js avec Express pour le back, architecture MVC en JS pour le front.",
+    label: "ok-label-bataille-navale",
+    desc: "ok-desc-bataille-navale",
     annee: "2023",
     name: "Esimed",
-    urlImg: "logo192.png",
-    link: "#",
+    urlImg: "",
+    link: "",
   },
   {
     label: "Portfolio",
-    desc: "Développement du portfolio en React pour le front, Node js pour le back avec une base de données pour la possibilité de modifier les couleurs de thème et le contenu à l'aide d'un back office. Ainsi que l'internationalisation complète du site.",
+    desc: "ok-desc-portfolio",
     annee: "2024",
     name: "Esimed",
     urlImg: "",
@@ -44,29 +46,26 @@ export function Projects() {
       //gérer l'erreur
     });
   return (
-    <div className="content flex-grow-1">
+    <div className="content">
       {projectsData.map((project, index) => {
         return (
-          <div className="col-md-12 mb-5" key={index}>
-            {project?.urlImg && (
-              <a href={project?.link}><img
-                className={
-                  index % 2 === 0
-                    ? "float-start col-md-4 me-5"
-                    : "float-end col-md-4 me-5"
-                }
-                src={project?.urlImg}
-                width='100px'
-                height='auto'
-                alt="Description"
-              /></a>
-            )}
-            <div className="col-md-12">
+          <div
+            className="bg-test rounded p-4 col-lg-3 col-md-8 col-sm-8 m-5 "
+            key={index}
+          >
+            <div className="">
               <h2>{project?.annee}</h2>
-              <h3>{project?.label}</h3>
-              <p className="text-right">{project?.desc}</p>
+              <h3>{i18n.t(project?.label)}</h3>
               <h6>{project?.name}</h6>
+              
+              
             </div>
+              <p className="text-right flex-grow-1 h-75">{i18n.t(project?.desc)}</p>
+            {project?.link && (
+              <a className="p-5" href={project?.link} target="_blank" rel="noreferrer">
+                <button>{i18n.t('ok-savoir-plus')}</button>
+              </a>
+            )}
           </div>
         );
       })}
