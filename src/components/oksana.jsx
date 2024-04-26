@@ -55,10 +55,10 @@ export function Oksana() {
           return (
             <div className="d-flex flex-wrap my-5" key={index}>
               <div className="d-flex flex-wrap justify-content-end w-100">
-                <div className="split left col-lg-2 col-md-12">
+                <div className="d-flex split left col-lg-4 justify-content-center mb-5">
                   {oksa?.urlImg && (
                     <img
-                    className="rounded-circle w-75"
+                    className="rounded-circle col-lg-4 col-md-4 col-sm-4"
                       src={oksa?.urlImg}
                       alt="Description"
                       width="500px"
