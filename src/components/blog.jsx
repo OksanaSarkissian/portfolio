@@ -17,15 +17,29 @@ const BLOGDATA = {
 export function Blog() {
   const [blogData, setBlogData] = useState([]);
 
-  useEffect(() => {
-    fetch(
-      `https://www.googleapis.com/blogger/v3/blogs/3213900/posts/search?q=documentation&key=AIzaSyCReeZEiFfjtyzkJqnAAdw4tYrBxlihwoY`
-    )
+  const editPost = (idPost) => {
+    fetch(`https://dummyjson.com/posts/${idPost}`)
       .then((response) => response.json())
       .then(
         (result) => {
           console.log(result);
-          setBlogData(result.items);
+          setBlogData(result.posts);
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
+      .catch((e) => {
+        //gérer l'erreur
+      });
+  }
+  useEffect(() => {
+    fetch(`https://dummyjson.com/posts?limit=10`)
+      .then((response) => response.json())
+      .then(
+        (result) => {
+          console.log(result);
+          setBlogData(result.posts);
         },
         (error) => {
           console.log(error);
@@ -41,25 +55,27 @@ export function Blog() {
         <div className="d-flex flex-wrap justify-content-end w-100">
           <div className="d-flex split left col-lg-4 justify-content-center mb-5"></div>
           <div className="rounded col-lg-8 bg-test pr-5">
-              {blogData &&
-                blogData.map((blog, index) => {
-                  return (
-                    <>
-                      <div className="card" key={index}>
-                        <h1>{blog.title}</h1>
-                        <img
-                          className="rounded-circle col-lg-4 col-md-4 col-sm-4"
-                          src={blog?.author.image}
-                          alt="Description"
-                          width="500px"
-                          height="auto"
-                        />
-                        <p>{blog.content}</p>
-                      </div>
-                      ;
-                    </>
-                  );
-                })}
+            {blogData &&
+              blogData.map((blog, index) => {
+                return (
+                  <>
+                    <div className="card d-flex mb-5 p-3" onClick={() => editPost(blog.id)} key={index}>
+                      <h1 className="fw-semibold">{blog.title}</h1>
+                      <p className="fw-normal">{blog.body}</p>
+                      <span className="align-self-end fw-lighter fst-italic">
+                        tags:{" "}
+                        {blog.tags.map((tag, index) => {
+                          return (
+                            <span className="fw-lighter" key={index}>
+                              #{tag}{" "}
+                            </span>
+                          );
+                        })}
+                      </span>
+                    </div>
+                  </>
+                );
+              })}
           </div>
         </div>
       </div>
