@@ -66,7 +66,7 @@ export function Oksana() {
                     />
                   )}
                 </div>
-                <div className="rounded col-lg-8 bg-test pr-5">
+                <div className="rounded col-lg-8 bg-test mx-5 pr-5">
                   <p>
                     {oksa?.nom} {oksa?.prénom}
                   </p>
