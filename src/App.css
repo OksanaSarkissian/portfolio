@@ -187,3 +187,8 @@ button {
   align-self: center;
   width: 100%;
 }
+
+.App-link, a{
+  color:inherit;
+  text-decoration: none;
+}

@@ -47,7 +47,7 @@ export function Header(props) {
           />
         </div>
         <nav>
-          <button onClick={() => changePage("/Blog")}>
+          <button onClick={() => changePage("/blog")}>
             {i18n.t("ok-blog")}
           </button>
           <button onClick={() => changePage("/background")}>

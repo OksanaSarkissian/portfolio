@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../App.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { Link } from "react-router-dom";
 const BLOGDATA = {
   items: [
     { nom: "SARKISSIAN" },
@@ -14,25 +15,9 @@ const BLOGDATA = {
     },
   ],
 };
-export function Blog() {
+export function Blog(props) {
   const [blogData, setBlogData] = useState([]);
 
-  const editPost = (idPost) => {
-    fetch(`https://dummyjson.com/posts/${idPost}`)
-      .then((response) => response.json())
-      .then(
-        (result) => {
-          console.log(result);
-          setBlogData(result.posts);
-        },
-        (error) => {
-          console.log(error);
-        }
-      )
-      .catch((e) => {
-        //gérer l'erreur
-      });
-  }
   useEffect(() => {
     fetch(`https://dummyjson.com/posts?limit=10`)
       .then((response) => response.json())
@@ -59,7 +44,8 @@ export function Blog() {
               blogData.map((blog, index) => {
                 return (
                   <>
-                    <div className="card d-flex mb-5 p-3" onClick={() => editPost(blog.id)} key={index}>
+                  <Link className="App-link" to={'post/'+blog.id} postId={blog.id}>
+                    <div className="card d-flex mb-5 p-3" key={index}>
                       <h1 className="fw-semibold">{blog.title}</h1>
                       <p className="fw-normal">{blog.body}</p>
                       <span className="align-self-end fw-lighter fst-italic">
@@ -73,7 +59,7 @@ export function Blog() {
                         })}
                       </span>
                     </div>
-                  </>
+                  </Link></>
                 );
               })}
           </div>
