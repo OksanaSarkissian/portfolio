@@ -50,7 +50,7 @@ export function Projects() {
       {projectsData.map((project, index) => {
         return (
           <div
-            className="bg-test d-flex flex-column directionrounded p-4 col-lg-3 col-md-8 col-sm-8 m-5 "
+            className="bg-test d-flex flex-column rounded p-4 col-lg-3 col-md-8 col-sm-8 m-5 "
             key={index}
           >
             <div className="">
@@ -63,7 +63,7 @@ export function Projects() {
               <p className="text-right flex-grow-1 ">{i18n.t(project?.desc)}</p>
             {project?.link && (
               <a className="p-5" href={project?.link} target="_blank" rel="noreferrer">
-                <button>{i18n.t('ok-savoir-plus')}</button>
+                <button className="rounded">{i18n.t('ok-savoir-plus')}</button>
               </a>
             )}
           </div>

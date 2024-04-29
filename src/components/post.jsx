@@ -37,39 +37,53 @@ export function Post() {
       );
   }, [id]);
   return (
-    <>
+    <div className="flex-grow-1 ">
       <div
-        className="card d-flex m-5 p-3 justify-self-center"
+        className="bg-test card-bg rounded d-flex flex-column m-5 p-3 justify-self-center"
         key={postData?.id}
       >
-        <h1 className="fw-semibold">{postData?.title}</h1>
-        <span className="mb-5 fw-lighter fst-italic">
-          tags:{" "}
-          {postData?.tags?.map((tag, index) => {
-            return (
-              <span className="fw-lighter" key={index}>
-                #{tag}{" "}
-              </span>
-            );
-          })}
-        </span>
-        <p className="fw-normal">{postData?.body}</p>
+        {postData && (
+          <>
+            <h1 className="fw-semibold">
+              <FontAwesomeIcon
+                className="App-link-light"
+                icon="fa-solid fa-trash"
+              />
+              <FontAwesomeIcon
+                className="App-link-light"
+                icon="fa-solid fa-pen-to-square"
+              />
+              {postData?.title}
+            </h1>
+            <span className="mb-5 fw-lighter fst-italic">
+              {"tags: "}
+              {postData?.tags?.map((tag, index) => {
+                return (
+                  <span className="fw-lighter" key={index}>
+                    #{tag}{" "}
+                  </span>
+                );
+              })}
+            </span>
+            <p className="fw-normal">{postData?.body}</p>
+          </>
+        )}
       </div>
       {commentData &&
         commentData.map((comment, index) => {
           return (
             <>
-              <div
-                className="card m-1 p-3 justify-self-center"
-                key={comment?.id}
-              >
-                <p className="fw-semibold">{comment?.user.username} :</p>
+              <div className="m-1 p-3" key={comment?.id}>
+                <p className="fw-semibold justify-self-left">
+                  {comment?.user.username} :
+                </p>
 
                 <p className="fw-normal">{comment?.body}</p>
+                <hr  />
               </div>
             </>
           );
         })}
-    </>
+    </div>
   );
 }

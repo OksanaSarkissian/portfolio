@@ -37,15 +37,14 @@ export function Blog(props) {
   return (
     <>
       <div className="d-flex flex-wrap my-5">
-        <div className="d-flex flex-wrap justify-content-end w-100">
-          <div className="d-flex split left col-lg-4 justify-content-center mb-5"></div>
-          <div className="rounded col-lg-8 bg-test pr-5">
+        <div className="d-flex flex-wrap justify-content-center w-100">
+          <div className="rounded col-lg-8 col-md-8 sol-sm-8 pr-5">
             {blogData &&
               blogData.map((blog, index) => {
                 return (
                   <>
-                  <Link className="App-link" to={'post/'+blog.id} postId={blog.id}>
-                    <div className="card d-flex mb-5 p-3" key={index}>
+                  <Link className="App-link slideLeft" to={'post/'+blog.id}>
+                    <div className="App-link slideLeft bg-test card-bg rounded d-flex flex-column mb-5 p-3" key={index}>
                       <h1 className="fw-semibold">{blog.title}</h1>
                       <p className="fw-normal">{blog.body}</p>
                       <span className="align-self-end fw-lighter fst-italic">
