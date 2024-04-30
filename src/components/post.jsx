@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import "../App.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export function Post() {
   const [postData, setpostData] = useState([]);
   const [commentData, setcommentData] = useState([]);
+  const [editing, setEditing] = useState(false);
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
   const { id } = useParams();
 
   useEffect(() => {
@@ -14,8 +17,10 @@ export function Post() {
       .then((response) => response.json())
       .then(
         (result) => {
-          console.log(result);
+          // console.log(result);
           setpostData(result);
+          setTitle(result.title)
+          setBody(result.body)
         },
         (error) => {
           console.log(error);
@@ -28,7 +33,7 @@ export function Post() {
       .then((res) => res.json())
       .then(
         (result) => {
-          console.log(result);
+          // console.log(result);
           setcommentData(result.comments);
         },
         (error) => {
@@ -36,6 +41,38 @@ export function Post() {
         }
       );
   }, [id]);
+  const deletePost = (idPost) => {
+    fetch(`https://dummyjson.com/posts/${idPost}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          // console.log(result);
+          setpostData(result.comments);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  };
+  const startEditing = () => {
+    setEditing(true);
+    document.getElementById("startEditing").classList.add("d-none");
+    document.getElementById("saveEdit").classList.remove("d-none");
+  };
+  const editPost = (idPost, post) => {
+    fetch(`https://dummyjson.com/posts/${idPost}`, {
+      method: "PUT" /* or PATCH */,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        title: title,
+        body: body,
+      }),
+    })
+      .then((res) => res.json())
+      .then(console.log);
+  };
   return (
     <div className="flex-grow-1 ">
       <div
@@ -45,15 +82,44 @@ export function Post() {
         {postData && (
           <>
             <h1 className="fw-semibold">
+              {!editing && (
+                <span className="w-100" id="toInput">
+                  {postData?.title}
+                </span>
+              )}
+              {editing && (
+                <input
+                  className="w-100"
+                  id="toInput"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value) }
+                ></input>
+              )}
+              <Link to={"../blog"} state={{ idDeleted: postData?.id }}>
+                <FontAwesomeIcon
+                  className="App-link-light"
+                  icon="fa-solid fa-trash"
+                  onClick={() => deletePost(postData?.id)}
+                />
+              </Link>
               <FontAwesomeIcon
-                className="App-link-light"
-                icon="fa-solid fa-trash"
-              />
-              <FontAwesomeIcon
+                id="startEditing"
                 className="App-link-light"
                 icon="fa-solid fa-pen-to-square"
+                onClick={() => startEditing()}
               />
-              {postData?.title}
+              <Link
+                className="d-none"
+                id="saveEdit"
+                to={"../blog"}
+                state={{ id: postData?.id, title: title, body: body }}
+              >
+                <FontAwesomeIcon
+                  className="App-link-light"
+                  icon="fa-solid fa-check"
+                  onClick={() => editPost(postData?.id)}
+                />
+              </Link>
             </h1>
             <span className="mb-5 fw-lighter fst-italic">
               {"tags: "}
@@ -65,7 +131,8 @@ export function Post() {
                 );
               })}
             </span>
-            <p className="fw-normal">{postData?.body}</p>
+            {!editing && (<p className="fw-normal">{postData?.body}</p>)}
+            {editing && (<textarea className="fw-normal w-100 h100" value={body} onChange={(e) => setBody(e.target.value) }></textarea>)}
           </>
         )}
       </div>
@@ -79,7 +146,7 @@ export function Post() {
                 </p>
 
                 <p className="fw-normal">{comment?.body}</p>
-                <hr  />
+                <hr />
               </div>
             </>
           );

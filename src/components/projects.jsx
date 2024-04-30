@@ -35,7 +35,7 @@ export function Projects() {
     .then((response) => response.json())
     .then(
       (result) => {
-        console.log(result);
+        // console.log(result);
         setProjectsData(PROJECTSDATA);
       },
       (error) => {

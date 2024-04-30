@@ -14,7 +14,7 @@ import { Post } from "./components/post.jsx";
 function App() {
   const [langue, setLangue] = useState("fr");
   const changeLangue = () => {
-    console.log(langue);
+    // console.log(langue);
     i18n.changeLanguage(langue);
     setLangue(langue === "fr" ? "en" : "fr");
   };
