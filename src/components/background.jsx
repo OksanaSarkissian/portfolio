@@ -25,7 +25,7 @@ export function Background() {
     });
   return (
     <>
-      <div className="flex-grow-1">
+      <div className="flex-grow-1 d-flex flex-column justify-content-center">
         {backgroundData.map((school, index) => {
           return (
             <div key={index}>

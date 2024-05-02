@@ -2,45 +2,54 @@ import React, { useEffect, useState } from "react";
 import "../App.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 
 export function Post() {
+  let { state } = useLocation();
+  console.log(state);
   const [postData, setpostData] = useState([]);
   const [commentData, setcommentData] = useState([]);
   const [editing, setEditing] = useState(false);
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
+  const [title, setTitle] = useState(state ? state.title : "");
+  const [body, setBody] = useState(state ? state.body : "");
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`https://dummyjson.com/posts/${id}`)
-      .then((response) => response.json())
-      .then(
-        (result) => {
-          // console.log(result);
-          setpostData(result);
-          setTitle(result.title)
-          setBody(result.body)
-        },
-        (error) => {
-          console.log(error);
-        }
-      )
-      .catch((e) => {
-        //gérer l'erreur
-      });
-    fetch(`https://dummyjson.com/posts/${id}/comments`)
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          // console.log(result);
-          setcommentData(result.comments);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-  }, [id]);
+    if (state) {
+      console.log(state);
+      setpostData(state);
+    } else {
+      fetch(`https://dummyjson.com/posts/${id}`)
+        .then((response) => response.json())
+        .then(
+          (result) => {
+            // console.log(result);
+            setpostData(result);
+            setTitle(result.title);
+            setBody(result.body);
+          },
+          (error) => {
+            console.log(error);
+          }
+        )
+        .catch((e) => {
+          //gérer l'erreur
+        });
+
+      fetch(`https://dummyjson.com/posts/${id}/comments`)
+        .then((res) => res.json())
+        .then(
+          (result) => {
+            // console.log(result);
+            setcommentData(result.comments);
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+    }
+  }, [id, state]);
+
   const deletePost = (idPost) => {
     fetch(`https://dummyjson.com/posts/${idPost}`, {
       method: "DELETE",
@@ -79,12 +88,12 @@ export function Post() {
         className="bg-test card-bg rounded d-flex flex-column m-5 p-3 justify-self-center"
         key={postData?.id}
       >
-        {postData && (
+        {(postData || state) && (
           <>
             <h1 className="fw-semibold">
               {!editing && (
                 <span className="w-100" id="toInput">
-                  {postData?.title}
+                  {state?.title || postData?.title}
                 </span>
               )}
               {editing && (
@@ -92,7 +101,7 @@ export function Post() {
                   className="w-100"
                   id="toInput"
                   value={title}
-                  onChange={(e) => setTitle(e.target.value) }
+                  onChange={(e) => setTitle(e.target.value)}
                 ></input>
               )}
               <Link to={"../blog"} state={{ idDeleted: postData?.id }}>
@@ -130,9 +139,24 @@ export function Post() {
                   </span>
                 );
               })}
+              {state?.tags?.map((tag, index) => {
+                return (
+                  <span className="fw-lighter" key={index}>
+                    #{tag}{" "}
+                  </span>
+                );
+              })}
             </span>
-            {!editing && (<p className="fw-normal">{postData?.body}</p>)}
-            {editing && (<textarea className="fw-normal w-100 h100" value={body} onChange={(e) => setBody(e.target.value) }></textarea>)}
+            {!editing && (
+              <p className="fw-normal">{state?.body || postData?.body}</p>
+            )}
+            {editing && (
+              <textarea
+                className="fw-normal w-100 h100"
+                value={body}
+                onChange={(e) => setBody(e.target.value)}
+              ></textarea>
+            )}
           </>
         )}
       </div>

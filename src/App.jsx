@@ -10,6 +10,7 @@ import i18n from "./i18n";
 import React, { useEffect, useState } from "react";
 import { Blog } from "./components/blog.jsx";
 import { Post } from "./components/post.jsx";
+import { Postform } from "./components/postForm.jsx";
 
 function App() {
   const [langue, setLangue] = useState("fr");
@@ -26,6 +27,7 @@ function App() {
           <Route index element={<Oksana />} />
           <Route path="/blog/" element={<Blog />} />
           <Route path="/blog/post/:id" element={<Post />} />
+          <Route path="/blog/post/add" element={<Postform />} />
           <Route path="/background" element={<Background />} />
           <Route path="/projects" element={<Projects />} />
         </Routes>
