@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "../App.css";
-import i18n from "../i18n";
+ 
+import i18n from "../hooks/i18n";
 
 const PROJECTSDATA = [
   {
@@ -31,20 +31,22 @@ const PROJECTSDATA = [
 ];
 export function Projects() {
   const [projectsData, setProjectsData] = useState([]);
-  fetch(`https://dog.ceo/api/breeds/image/random`)
-    .then((response) => response.json())
-    .then(
-      (result) => {
-        // console.log(result);
-        setProjectsData(PROJECTSDATA);
-      },
-      (error) => {
-        console.log(error);
-      }
-    )
-    .catch((e) => {
-      //gérer l'erreur
-    });
+  useEffect(() => {
+  setProjectsData(PROJECTSDATA);
+  }, [])
+  // fetch(`https://dog.ceo/api/breeds/image/random`)
+  //   .then((response) => response.json())
+  //   .then(
+  //     (result) => {
+  //       // console.log(result);
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   )
+  //   .catch((e) => {
+  //     //gérer l'erreur
+  //   });
   return (
     <div className="content">
       {projectsData.map((project, index) => {

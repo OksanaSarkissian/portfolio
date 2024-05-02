@@ -9,7 +9,13 @@
     "ok-label-bataille-navale":"Naval battle",
     "ok-desc-mx-ecole": "Creation of the specifications, design of the database as well as the layout in collaboration with the company manager. Development of the online registration site for motocross courses and a back office for the creation of courses, access to the list of students on the timetable as well as access to those registered for courses.",
     "ok-label-mx-ecole":"Customized website design and development",
-    "ok-blog":"Blog"
+    "ok-blog":"Blog",
+    "ok-add":"Add",
+    "ok-title":"Title",
+    "ok-body":"Body",
+    "ok-tag":"Tags"
+
+
 
 
 

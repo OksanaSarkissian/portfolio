@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../App.css";
+ 
 
 const BACKGROUNDDATA = [
   { label: "Licence bac +2", annee: "2022", name: "GRETA du Var" },
@@ -9,20 +9,23 @@ const BACKGROUNDDATA = [
 ];
 export function Background() {
   const [backgroundData, setBackgroundData] = useState([]);
-  fetch(`https://dog.ceo/api/breeds/image/random`)
-    .then((response) => response.json())
-    .then(
-      (result) => {
-        // console.log(result);
-        setBackgroundData(BACKGROUNDDATA);
-      },
-      (error) => {
-        console.log(error);
-      }
-    )
-    .catch((e) => {
-      //gérer l'erreur
-    });
+  
+  useEffect(() => {
+  setBackgroundData(BACKGROUNDDATA);
+  }, [])
+  // fetch(`https://dog.ceo/api/breeds/image/random`)
+  //   .then((response) => response.json())
+  //   .then(
+  //     (result) => {
+  //       // console.log(result);
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   )
+  //   .catch((e) => {
+  //     //gérer l'erreur
+  //   });
   return (
     <>
       <div className="flex-grow-1 d-flex flex-column justify-content-center">

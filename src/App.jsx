@@ -1,16 +1,16 @@
 import "./App.css";
 import { withNamespaces } from "react-i18next";
-import { Oksana } from "./components/oksana.jsx";
-import { Background } from "./components/background.jsx";
-import { Projects } from "./components/projects.jsx";
-import { Header } from "./components/header.jsx";
-import { Footer } from "./components/footer.jsx";
+import { Oksana } from "./pages/oksana.jsx";
+import { Background } from "./pages/background.jsx";
+import { Projects } from "./pages/projects.jsx";
+import { Header } from "./components/layouts/header.jsx";
+import { Footer } from "./components/layouts/footer.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import i18n from "./i18n";
+import i18n from "./hooks/i18n.js";
 import React, { useEffect, useState } from "react";
-import { Blog } from "./components/blog.jsx";
-import { Post } from "./components/post.jsx";
-import { Postform } from "./components/postForm.jsx";
+import { Blog } from "./pages/blog.jsx";
+import { Post } from "./pages/post.jsx";
+import { Postform } from "./pages/postForm.jsx";
 
 function App() {
   const [langue, setLangue] = useState("fr");

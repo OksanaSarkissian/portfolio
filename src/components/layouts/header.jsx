@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "../App.css";
-import { ButtonTheme } from "./theme-button";
-import i18n from "../i18n";
+ 
+import { ButtonTheme } from "../UI/theme-button";
+import i18n from "../../hooks/i18n";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLanguage } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";

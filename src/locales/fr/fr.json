@@ -9,7 +9,11 @@
     "ok-label-bataille-navale":"Bataille navale",
     "ok-desc-mx-ecole": "Création du cahier des charges, conception de la base de données ainsi que le maquettage en collaboration avec la responsable de a société. Développement du site d'inscription en ligne à des cours de motocross et d'un back office pour la création des cours, l'accés à la liste des élèves à l'emploi du temps ainsi que l'accés aux inscrit aux cours.",
     "ok-label-mx-ecole":"Conception et développement site web personnalisé",
-    "ok-blog":"Blog"
+    "ok-blog":"Blog",
+    "ok-add":"Ajouter",
+    "ok-title":"Titre",
+    "ok-body":"Contenu",
+    "ok-tag":"Catégorie"
 
 
 }

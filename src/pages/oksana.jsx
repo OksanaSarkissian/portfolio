@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "../App.css";
-import i18n from "../i18n";
+ 
+import i18n from "../hooks/i18n";
 
 const OKSADATA = [
   {
@@ -34,20 +34,22 @@ const OKSADATA = [
 ];
 export function Oksana() {
   const [oksaData, setOksaData] = useState([]);
-  fetch(`https://dog.ceo/api/breeds/image/random`)
-    .then((response) => response.json())
-    .then(
-      (result) => {
-        // console.log(result);
-        setOksaData(OKSADATA);
-      },
-      (error) => {
-        console.log(error);
-      }
-    )
-    .catch((e) => {
-      //gérer l'erreur
-    });
+  useEffect(() => {
+  setOksaData(OKSADATA);
+  }, [])
+  // fetch(`https://dog.ceo/api/breeds/image/random`)
+  //   .then((response) => response.json())
+  //   .then(
+  //     (result) => {
+  //       // console.log(result);
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   )
+  //   .catch((e) => {
+  //     //gérer l'erreur
+  //   });
   return (
     <>
       <div className="content flex-grow-1">

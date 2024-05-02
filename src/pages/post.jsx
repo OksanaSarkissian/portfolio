@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../App.css";
+ 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { Link, useLocation, useParams } from "react-router-dom";
@@ -133,13 +133,6 @@ export function Post() {
             <span className="mb-5 fw-lighter fst-italic">
               {"tags: "}
               {postData?.tags?.map((tag, index) => {
-                return (
-                  <span className="fw-lighter" key={index}>
-                    #{tag}{" "}
-                  </span>
-                );
-              })}
-              {state?.tags?.map((tag, index) => {
                 return (
                   <span className="fw-lighter" key={index}>
                     #{tag}{" "}

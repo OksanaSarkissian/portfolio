@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "../App.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { Link, useLocation } from "react-router-dom";
+import i18n from "../hooks/i18n";
 
 export function Blog(props) {
   const [blogData, setBlogData] = useState([]);
@@ -30,7 +28,7 @@ export function Blog(props) {
       <div className="d-flex flex-wrap my-5 flex-grow-1 justify-content-center w-100">
         <div className="rounded col-lg-8 col-md-8 sol-sm-8 pr-5">
           <Link className="App-link slideLeft" to={"post/add"}>
-            <button>Add</button>
+            <button>{i18n.t('ok-add')}</button>
           </Link>
           {blogData &&
             blogData.map((blog, index) => {

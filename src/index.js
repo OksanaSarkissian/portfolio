@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+// import "./index.css";
 import App from "./App.jsx";
 import reportWebVitals from "./reportWebVitals.js";
-import "./i18n.js";
+import "./hooks/i18n.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
