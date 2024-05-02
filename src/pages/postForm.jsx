@@ -12,6 +12,7 @@ export function Postform() {
   const [tags, setTags] = useState([]);
   const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
+  const userId = sessionStorage.getItem('userId');
 
   const addPost = async () => {
     await fetch("https://dummyjson.com/posts/add", {
@@ -21,7 +22,7 @@ export function Postform() {
         title: title,
         body: body,
         tags: tags,
-        userId: 5,
+        userId: userId,
       }),
     })
       .then((res) => res.json())

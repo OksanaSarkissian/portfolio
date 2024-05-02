@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
  
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 
 export function Post() {
   let { state } = useLocation();
@@ -13,8 +13,10 @@ export function Post() {
   const [title, setTitle] = useState(state ? state.title : "");
   const [body, setBody] = useState(state ? state.body : "");
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
+    checkTokenValidity()
     if (state) {
       console.log(state);
       setpostData(state);
@@ -82,6 +84,40 @@ export function Post() {
       .then((res) => res.json())
       .then(console.log);
   };
+  const checkTokenValidity = async () => {
+    // Vérifier si le token est présent dans sessionStorage
+    const token = sessionStorage.getItem('token');
+    if (!token) {
+      navigate('/login')
+    }
+  
+    try {
+      // Effectuer une requête GET à l'API pour vérifier le token
+      const response = await fetch('https://dummyjson.com/auth/me', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`, 
+        }, 
+      });
+  
+      if (!response.ok) {
+        throw new Error('Token invalide.');
+      }
+  
+      // Token valide
+      console.log("Token valide.");
+  
+      // Traiter la réponse JSON si nécessaire
+      const data = await response.json();
+      console.log(data);
+      
+    } catch (error) {
+      console.error('Erreur lors de la validation du token:', error.message);
+      // Gérer les erreurs, par exemple, rediriger vers la page de connexion
+      // window.location.href = '/login';
+    }
+  };
+  
   return (
     <div className="flex-grow-1 ">
       <div
@@ -134,7 +170,7 @@ export function Post() {
               {"tags: "}
               {postData?.tags?.map((tag, index) => {
                 return (
-                  <span className="fw-lighter" key={index}>
+                  <span className="fw-lighter" key={"tag-"+index}>
                     #{tag}{" "}
                   </span>
                 );
@@ -157,7 +193,7 @@ export function Post() {
         commentData.map((comment, index) => {
           return (
             <>
-              <div className="m-1 p-3" key={comment?.id}>
+              <div className="m-1 p-3" key={"comment-"+comment?.id}>
                 <p className="fw-semibold justify-self-left">
                   {comment?.user.username} :
                 </p>

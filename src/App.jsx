@@ -11,6 +11,7 @@ import React, { useEffect, useState } from "react";
 import { Blog } from "./pages/blog.jsx";
 import { Post } from "./pages/post.jsx";
 import { Postform } from "./pages/postForm.jsx";
+import { LoginForm } from "./pages/loginForm.jsx";
 
 function App() {
   const [langue, setLangue] = useState("fr");
@@ -25,7 +26,8 @@ function App() {
         <Header changeLangue={changeLangue} />
         <Routes>
           <Route index element={<Oksana />} />
-          <Route path="/blog/" element={<Blog />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/login" element={<LoginForm />} />
           <Route path="/blog/post/:id" element={<Post />} />
           <Route path="/blog/post/add" element={<Postform />} />
           <Route path="/background" element={<Background />} />

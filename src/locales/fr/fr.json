@@ -13,7 +13,11 @@
     "ok-add":"Ajouter",
     "ok-title":"Titre",
     "ok-body":"Contenu",
-    "ok-tag":"Catégorie"
+    "ok-tag":"Catégorie",
+    "ok-error-connection":"L'authentification a échoué. Veuillez vérifier vos informations d'identification.",
+    "ok-username":"Pseudo",
+    "ok-password":"Mot de passe",
+    "ok-login":"Se connecter"
 
 
 }

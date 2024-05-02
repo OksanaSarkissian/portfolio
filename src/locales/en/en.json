@@ -13,7 +13,11 @@
     "ok-add":"Add",
     "ok-title":"Title",
     "ok-body":"Body",
-    "ok-tag":"Tags"
+    "ok-tag":"Tags",
+    "ok-error-connection":"Authentication failed. Please check your credentials.",
+    "ok-username":"Username",
+    "ok-password":"Password",
+    "ok-login":"Login"
 
 
 
